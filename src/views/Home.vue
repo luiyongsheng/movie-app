@@ -9,27 +9,34 @@
           >
             <div class="z-50 absolute bottom-0 w-full">
               <div class="p-6 mb-12 flex flex-col items-center">
+                <p class="text-sm star-badge">
+                  <ion-icon name="ios-star" class="leading-none text-yellow-600"></ion-icon>
+                  <span class="ml-1">8.5</span>
+                </p>
                 <h3 class="text-3xl md:text-5xl font-bold">Joker</h3>
-                <p class="text-lg md:text-xl mb-6">Mischief. Mayhem. Soap.</p>
-                <p class="text-sm"><ion-icon name="ios-star" class="text-yellow-600"></ion-icon> 7.2</p>
+                <p class="text-lg md:text-xl mb-3">Mischief. Mayhem. Soap.</p>
               </div>
             </div>
           </div>
         </section>
       </header>
+
+      <section class="today">
+        <div class="flex flex-col">
+          <h2 class="mx-4 md:mx-6 my-3 text-xl">Today's Pick</h2>
+          <div
+            class="flex flex-row items-center mb-6 flex-no-wrap whitespace-no-wrap overflow-auto"
+          >
+            <router-link to="/" class="block rounded" v-for="i in 2" :key="i">
+              <img
+                class="rounded overflow-hidden w-64 h-full poster mt-3 mb-12 mx-4 md:mx-6"
+                src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
+              />
+            </router-link>
+          </div>
+        </div>
+      </section>
     </main>
-    <div class="fixed bottom-0 w-full">
-      <aside class="flex self-center items-center sticky justify-center mb-4 md:mb-6">
-        <nav
-          class="flex flex-row items-center justify-center self-center p-4 md:p-8 icon-nav border border-gray-800 hover:border-gray-700"
-        >
-          <ion-icon name="ios-home" class="text-3xl mx-6 md:mx-8"></ion-icon>
-          <ion-icon name="ios-search" class="text-3xl mx-6 md:mx-8"></ion-icon>
-          <ion-icon name="ios-star" class="text-3xl mx-6 md:mx-8"></ion-icon>
-          <ion-icon name="ios-settings" class="text-3xl mx-6 md:mx-8"></ion-icon>
-        </nav>
-      </aside>
-    </div>
   </div>
 </template>
 
@@ -58,17 +65,13 @@ export default {
     background: linear-gradient(to top, #1a202c, transparent);
   }
 }
-.icon-nav {
-  background: rgba(#2d3748, 0.8);
-  backdrop-filter: saturate(180%) blur(20px);
-  border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
-  border-radius: 12px;
-  box-shadow: 0 0 48px rgba(#2d3748, 0.3618);
-  transition: 256ms ease-in;
-
-  &:hover {
-    box-shadow: 0 0 32px rgba(#697a97, 0.3618);
-  }
+.star-badge {
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.333);
+  border-radius: 3px;
+}
+.poster {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.8),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 </style>
