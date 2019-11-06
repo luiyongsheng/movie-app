@@ -19,6 +19,7 @@ devDependencies:
   postcss-import: 12.0.1
   sass-loader: 8.0.0_node-sass@4.13.0
   tailwindcss: 1.1.3
+  vue-glide-js: 1.3.14
   vue-template-compiler: 2.6.10
 lockfileVersion: 5.1
 packages:
@@ -824,6 +825,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-zvfS3dPKD2FAtMcXapMJXGbDgEp9E++mLR6lTgSruv6y37uvV5xJ1crVktuC1gvnmMwsa7Zh1m05FeEiz4VnIQ==
+  /@glidejs/glide/3.4.1:
+    dev: true
+    resolution:
+      integrity: sha512-C34AEcK1HjSyxilRToUL54I6KAoodojUbeRlXoruobZuG0eGm8xfDL+3kgkWj7AJK4EZtunSOYfoqMp70eDtwg==
   /@hapi/address/2.1.2:
     dev: true
     resolution:
@@ -9176,6 +9181,13 @@ packages:
       eslint: ^5.0.0
     resolution:
       integrity: sha512-JlHVZwBBTNVvzmifwjpZYn0oPWH2SgWv5dojlZBsrhablDu95VFD+hriB1rQGwbD+bms6g+rAFhQHk6+NyiS6g==
+  /vue-glide-js/1.3.14:
+    dependencies:
+      '@glidejs/glide': 3.4.1
+      vue: 2.6.10
+    dev: true
+    resolution:
+      integrity: sha512-dgF+7pcsqNawU5nPE26MD7nMvfKD5zQjOE/e+xd2XccQ6GX83JYGiwAAbM1QlpA1X7Urp5aLqR214gfBunUnjw==
   /vue-hot-reload-api/2.3.4:
     dev: true
     resolution:
@@ -9221,7 +9233,6 @@ packages:
     resolution:
       integrity: sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
   /vue/2.6.10:
-    dev: false
     resolution:
       integrity: sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
   /vuex/3.1.1:
@@ -9767,6 +9778,7 @@ specifiers:
   sass-loader: ^8.0.0
   tailwindcss: ^1.1.3
   vue: ^2.6.10
+  vue-glide-js: ^1.3.14
   vue-router: ^3.1.3
   vue-template-compiler: ^2.6.10
   vuex: ^3.0.1

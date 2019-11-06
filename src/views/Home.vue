@@ -24,15 +24,36 @@
       <section class="today">
         <div class="flex flex-col">
           <h2 class="mx-4 md:mx-6 my-3 text-xl">Today's Pick</h2>
-          <div
-            class="flex flex-row items-center mb-6 flex-no-wrap whitespace-no-wrap overflow-auto"
-          >
-            <router-link to="/" class="block rounded" v-for="i in 2" :key="i">
-              <img
-                class="rounded overflow-hidden w-64 h-full poster mt-3 mb-12 mx-4 md:mx-6"
-                src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
-              />
-            </router-link>
+          <div class="today mb-12">
+            <vue-glide
+              :perView="8"
+              :gap="25"
+              :rewind="false"
+              :breakpoints="{
+            1024: {
+              perView: 5
+            },
+            800: {
+              perView: 4,
+            },
+            576: {
+              perView: 3,
+              peek: {
+                before: 0,
+                after: 0,
+              }
+            }
+          }"
+            >
+              <vue-glide-slide v-for="i in 12" :key="i">
+                <router-link to="/" class="block rounded">
+                  <img
+                    class="rounded overflow-hidden w-64 h-full poster mt-3 mb-12 mx-4 md:mx-6"
+                    src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
+                  />
+                </router-link>
+              </vue-glide-slide>
+            </vue-glide>
           </div>
         </div>
       </section>
