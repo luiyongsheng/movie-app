@@ -26,16 +26,18 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    getGenres({
+    fetchGenres({
       commit
     }) {
       axios.get(`${this.state.api.basePath}/genre/movie/list?api_key=${this.state.api.key}&language=en-US`).then(resp => {
         commit('loadGenres', resp.data.genres)
       })
-    }
+    },
   },
   getters: {
-
+    getGenresById: (state) => (id) => {
+      return state.genres.get(id)
+    }
   },
   modules: {}
 })

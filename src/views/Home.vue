@@ -13,8 +13,10 @@
                   <i class="icon ion-ios-star leading-none text-yellow-600"></i>
                   <span class="ml-1">{{heroMovie.vote_average}}</span>
                 </p>
-                <h3 class="text-3xl md:text-5xl font-bold">{{ heroMovie.title }}</h3>
-                <p class="text-lg md:text-xl mb-3"></p>
+                <h3 class="text-3xl md:text-5xl font-bold text-center leading-none my-3">{{ heroMovie.title }}</h3>
+                <p class="text-sm md:text-lg text-center opacity-50">
+                  <span class="px-2" v-for="(g,i) in heroMovie.genre_ids" :key="i">{{getGenresById(g)}} </span>
+                </p>
               </div>
             </div>
           </div>
@@ -26,13 +28,26 @@
           <poster-slide headline="Today's Pick" :gallery="todayPick"></poster-slide>
         </div>
       </section>
+      <section class="trending-tv">
+        <div class="flex flex-col">
+          <poster-slide headline="Trending TV Shows" :gallery="tvShows"></poster-slide>
+        </div>
+      </section>
+      <section class="trending-tv">
+        <div class="flex flex-col">
+          <poster-slide
+            headline="Movies people are watching this week"
+            :gallery="trendingMovie_week"
+          ></poster-slide>
+        </div>
+      </section>
     </main>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import posterSlide from "@/components/PosterSlide";
 
 export default {
@@ -51,10 +66,13 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["getGenres"])
+    ...mapActions(["fetchGenres"])
+  },
+  computed: {
+    ...mapGetters(["getGenresById"])
   },
   created() {
-    this.getGenres();
+    this.fetchGenres();
     axios
       .get(
         `${this.$store.state.api.basePath}/discover/movie?page=1&include_video=true&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=${this.$store.state.api.key}`
