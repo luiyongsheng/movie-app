@@ -2,7 +2,9 @@
   <div id="app" class="bg-gray-900 text-white min-h-screen relative">
     <div class="w-full overflow-hidden">
       <transition name="page" mode="out-in">
-        <router-view />
+        <keep-alive>
+          <router-view :key="$route.fullPath" />
+        </keep-alive>
       </transition>
     </div>
     <div class="fixed bottom-0 w-full z-50">
@@ -12,13 +14,13 @@
         >
           <router-link to="/">
             <div class="flex flex-col items-center hover:text-yellow-500">
-              <ion-icon name="ios-home" class="text-3xl mx-6 md:mx-8"></ion-icon>
+              <i class="text-3xl mx-6 md:mx-8 icon ion-ios-home"></i>
             </div>
           </router-link>
-          <ion-icon name="ios-search" class="text-3xl mx-6 md:mx-8"></ion-icon>
+          <i class="text-3xl mx-6 md:mx-8 icon ion-ios-search"></i>
           <router-link to="/about">
             <div class="flex flex-col items-center hover:text-yellow-500">
-              <ion-icon name="ios-settings" class="text-3xl mx-6 md:mx-8"></ion-icon>
+              <i class="text-3xl mx-6 md:mx-8 ion-ios-settings"></i>
             </div>
           </router-link>
         </nav>
@@ -37,7 +39,7 @@
 **/
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 260ms ease-in, transform 260ms ease-out;
+  transition: opacity 128ms ease-in, transform 128ms ease-out;
 }
 .page-enter,
 .page-leave-to {
